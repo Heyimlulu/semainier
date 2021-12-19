@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.insurance</groupId>
-	<artifactId>InsuranceAutoApplication</artifactId>
+	<artifactId>SemainierApplication</artifactId>
 	<version>1.0</version>
-	<name>InsuranceAutoApplication</name>
-	<description>Auto insurance management</description>
+	<name>SemainierApplication</name>
+	<description>Gestion d'un semainier</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -48,7 +48,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
@@ -58,7 +58,7 @@
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-locator-core</artifactId>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>
