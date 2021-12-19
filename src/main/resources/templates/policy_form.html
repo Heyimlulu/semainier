@@ -73,14 +73,8 @@
 				<div class="form-group row">
 					<label class="col-form-label col-sm-4">Coverages: </label>
 					<div class="col-sm-8 text-left">
-						<select>
-							<option th:each="coverage : ${listCoverages}" value="${coverage.id}" class="m-2">[[${coverage.coverageName}]]</option>
-						</select>
-
 						<th:block th:each="coverage : ${listCoverages}">
-							<select>
-								<option th:field="*{coverages}" th:text="${coverage.coverageName}" th:value="${coverage.id}" class="m-2">${coverage.coverageName}</option>
-							</select>
+							<input type="radio" th:field="*{coverages}" th:text="${coverage.coverageName}" th:value="${coverage.id}" class="m-2">
 						</th:block>
 					</div>
 				</div>
