@@ -1,6 +1,6 @@
 ## Semainier
 
-Programme éducatif de semainier permettant de référencer les travaux des élèves par jour de la semaine.
+A weekly planner application that allows students work to be referenced by day of the week.
 
 ## Setup
 
