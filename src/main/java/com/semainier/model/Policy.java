@@ -1,11 +1,8 @@
 package com.semainier.model;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Policy {
@@ -50,17 +46,6 @@ public class Policy {
 	@ManyToMany
 	@JoinTable(name = "policy_coverage", joinColumns = @JoinColumn(name = "policy_id"), inverseJoinColumns = @JoinColumn(name = "coverage_id"))
 	private Set<Coverage> coverages = new HashSet<Coverage>();
-
-	@OneToMany(mappedBy = "policy", cascade = CascadeType.ALL)
-	private List<PolicyEditLog> pEditLogs = new ArrayList<PolicyEditLog>();
-
-	public List<PolicyEditLog> getpEditLogs() {
-		return pEditLogs;
-	}
-
-	public void setpEditLogs(List<PolicyEditLog> pEditLogs) {
-		this.pEditLogs = pEditLogs;
-	}
 
 	public Policy() {}
 
