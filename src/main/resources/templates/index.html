@@ -10,14 +10,16 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-<body class="bg-secondary">
+<body class="bg-white">
 	<div th:insert="navbar :: navbar">  </div>
-	<div class="container text-center ">
+	<div class="container position-absolute top-50 start-50 translate-middle text-center">
 		<div>
-			<h1>Semainier</h1>
+			<h1 >Projet de semainier pour les élèves</h1>
 		</div>
-</div>
 	</div>
-	<div th:insert="navbar :: footer">  </div>
+
+	<div th:insert="navbar :: footer">
+		
+	</div>
 </body>
 </html>
