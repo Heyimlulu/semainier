@@ -20,7 +20,7 @@ public class Work {
 	private Integer duree;
 
 	@Column(nullable = false)
-	private String semaine;
+	private Date date;
 
 	@Column(nullable = false)
 	private String remarque;
@@ -35,11 +35,11 @@ public class Work {
 		this.id = id;
 	}
 
-	public Work(String branche, Integer duree, String semaine, String remarque) {
+	public Work(String branche, Integer duree, Date date, String remarque) {
 		super();
 		this.branche = branche;
 		this.duree = duree;
-		this.semaine = semaine;
+		this.date = date;
 		this.remarque = remarque;
 	}
 
@@ -64,11 +64,11 @@ public class Work {
 		this.duree = duree;
 	}
 
-	public String getSemaine() {
-		return semaine;
+	public Date getDate() {
+		return date;
 	}
-	public void setSemaine(String semaine) {
-		this.semaine = semaine;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public String getRemarque() {
@@ -97,7 +97,7 @@ public class Work {
 				"[id=" + id +
 				", branche=" + branche +
 				", duree=" + duree +
-				", semaine=" + semaine +
+				", date=" + date +
 				", remarque=" + remarque + "]";
 	}
 }
