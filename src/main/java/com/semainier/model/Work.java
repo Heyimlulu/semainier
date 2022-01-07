@@ -22,6 +22,9 @@ public class Work {
 	@Column(nullable = false)
 	private String semaine;
 
+	@Column(nullable = false)
+	private String remarque;
+
 	@ManyToMany
 	@JoinTable(name = "tblEtudier", joinColumns = @JoinColumn(name = "tblTache_tacId"), inverseJoinColumns = @JoinColumn(name = "tblEleve_EleId"))
 	private Set<Student> students = new HashSet<Student>();
@@ -32,11 +35,12 @@ public class Work {
 		this.id = id;
 	}
 
-	public Work(String branche, Integer duree, String semaine) {
+	public Work(String branche, Integer duree, String semaine, String remarque) {
 		super();
 		this.branche = branche;
 		this.duree = duree;
 		this.semaine = semaine;
+		this.remarque = remarque;
 	}
 
 	public Integer getId() {
@@ -67,6 +71,13 @@ public class Work {
 		this.semaine = semaine;
 	}
 
+	public String getRemarque() {
+		return remarque;
+	}
+	public void setRemarque(String remarque) {
+		this.remarque = remarque;
+	}
+
 	public Set<Student> getStudent() {
 		return students;
 	}
@@ -86,6 +97,7 @@ public class Work {
 				"[id=" + id +
 				", branche=" + branche +
 				", duree=" + duree +
-				", semaine=" + semaine + "]";
+				", semaine=" + semaine +
+				", remarque=" + remarque + "]";
 	}
 }

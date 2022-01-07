@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.semainier.model.Locality;
 
 public interface LocalityRepository extends JpaRepository<Locality, Integer> {
-	@Query("SELECT locality FROM Locality locality WHERE CONCAT(locality.id, ' ', locality.canton, ' ', locality.ville, ' ', locality.NPA) LIKE %?1%")
+	@Query("SELECT locality FROM Locality locality WHERE CONCAT(locality.id, ' ', locality.ville) LIKE %?1%")
 	public Page<Locality> findAll(String keyword, Pageable pageable);
 
 }

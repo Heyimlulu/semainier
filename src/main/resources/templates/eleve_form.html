@@ -38,6 +38,16 @@
 						<input type="date" th:field="*{dob}" class="form-control" required>
 					</div>
 				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Locality: </label>
+					<div class="col-sm-8">
+						<select th:field="*{locality}" class="form-control" required>
+							<th:block th:each="locality : ${listLocalities}">
+								<option th:text="${locality.ville}" th:value="${locality.id}"/>
+							</th:block>
+						</select>
+					</div>
+				</div>
 				</th:block>
 				<div class="text-center p-3">
 					<button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Sauvegarder</button>

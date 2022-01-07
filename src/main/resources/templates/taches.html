@@ -37,6 +37,7 @@
 						<th style="vertical-align: middle;">Branche</th>
 						<th style="vertical-align: middle;">Duree (h)</th>
 						<th style="vertical-align: middle;">Semaine</th>
+						<th style="vertical-align: middle;">Remarque</th>
 						<th><a th:href="@{/taches/new}" class="btn btn-primary"><span class="spinner-grow spinner-grow-sm"></span> New</a></th>
 					</tr>
 				</thead>
@@ -47,6 +48,7 @@
 							<td>[[${taches.branche}]]</td>
 							<td>[[${taches.duree}]]</td>
 							<td>[[${taches.semaine}]]</td>
+							<td>[[${taches.remarque}]]</td>
 							<td>
 								<a th:href="@{'/taches/edit/' + ${taches.id}}" class="btn btn-primary"><i class="fas fa-pen"></i> Modifier</a>
 								&nbsp;&nbsp;

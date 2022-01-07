@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.semainier.Constants;
 import com.semainier.model.Student;
+import com.semainier.model.Locality;
 import com.semainier.repository.StudentRepository;
+import com.semainier.repository.LocalityRepository;
 
 
 @Controller
@@ -21,6 +23,8 @@ public class StudentController {
 	@Autowired
 	private StudentRepository studentRepository;
 
+	@Autowired
+	private LocalityRepository localityRepository;
 
 	@GetMapping("/eleves")
 	public String showStudentList(Model model) {
@@ -43,6 +47,7 @@ public class StudentController {
 
 	@GetMapping("/eleves/new")
 	public String showCreateNewStudentForm(Model model) {
+		model.addAttribute("listLocalities", localityRepository.findAll());
 		model.addAttribute("student", new Student());
 		return "eleve_form";
 	}
@@ -50,12 +55,18 @@ public class StudentController {
 
 	@PostMapping("/eleves/save")
 	public String saveStudent(Student student) {
+		/*
+		int last = localityRepository.findAll().size();
+		Locality l = localityRepository.findAll().get(last-1);
+		student.setLocality(l);
+		 */
 		studentRepository.save(student);
 		return "redirect:/eleves";
 	}
 
 	@GetMapping("/eleves/edit/{id}")
 	public String showCreateNewStudentForm(@PathVariable Integer id, Model model) {
+		model.addAttribute("listLocalities", localityRepository.findAll());
 		model.addAttribute("student", studentRepository.findById(id).get());
 		return "eleve_form";
 	}

@@ -1,6 +1,7 @@
 package com.semainier.model;
 
-import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -16,9 +17,20 @@ public class Locality {
 
 	@Column(nullable = false, columnDefinition = "varchar(45)")
 	private String ville;
-	
+
 	@Column(nullable = false, columnDefinition = "int")
 	private Integer NPA;
+
+	@OneToMany(mappedBy = "locality", cascade = CascadeType.ALL)
+	private List<Student> lStudent = new ArrayList<Student>();
+
+	public List<Student> getlStudent() {
+		return lStudent;
+	}
+
+	public void setlStudent(List<Student> lStudent) {
+		this.lStudent = lStudent;
+	}
 
 	public Locality() {}
 	public Locality(Integer id) {
@@ -53,10 +65,10 @@ public class Locality {
 		this.ville = ville;
 	}
 
-	public Integer getCodePostal() {
+	public Integer getNPA() {
 		return NPA;
 	}
-	public void setCodePostal(Integer NPA) {
+	public void setNPA(Integer NPA) {
 		this.NPA = NPA;
 	}
 

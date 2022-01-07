@@ -20,16 +20,29 @@ public class Student {
 	@Column(nullable = false)
 	private Date dob;
 
+	@ManyToOne
+	@JoinColumn(name = "tblLocalite_locId")
+	private Locality locality;
+
+	public Locality getLocality() {
+		return locality;
+	}
+
+	public void setLocality(Locality locality) {
+		this.locality = locality;
+	}
+
 	public Student() {}
 	public Student(Integer id) {
 		this.id = id;
 	}
 
-	public Student(String nom, String prenom, Date dob) {
+	public Student(String nom, String prenom, Date dob, Locality locality) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dob = dob;
+		this.locality = locality;
 	}
 
 	public Integer getId() {
