@@ -4,7 +4,7 @@ import java.sql.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name="tblEleve")
+@Table(name="tbleleve")
 public class Student {
 
 	@Id
@@ -21,7 +21,7 @@ public class Student {
 	private Date dob;
 
 	@ManyToOne
-	@JoinColumn(name = "tblLocalite_locId")
+	@JoinColumn(name = "tbllocalite_locid")
 	private Locality locality;
 
 	public Locality getLocality() {

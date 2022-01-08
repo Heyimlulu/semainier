@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(name="tblLocalite")
+@Table(name="tbllocalite")
 public class Locality {
 
 	@Id
@@ -78,7 +78,7 @@ public class Locality {
 				"[id=" + id +
 				", canton=" + canton +
 				", ville=" + ville +
-				", code postal=" + NPA + "]";
+				", NPA=" + NPA + "]";
 	}
 
 

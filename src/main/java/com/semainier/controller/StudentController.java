@@ -52,7 +52,6 @@ public class StudentController {
 		return "eleve_form";
 	}
 
-
 	@PostMapping("/eleves/save")
 	public String saveStudent(Student student) {
 		/*

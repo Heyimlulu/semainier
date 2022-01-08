@@ -51,10 +51,10 @@
 <body>
 	<div th:insert="navbar :: navbar">  </div>
 	<div class="container text-center">
-		<div><p></p>
+		<div>
 			<h1>Liste des tâches</h1>
 		</div>
-		<button class="btn btn-secondary" type="button" onclick="window.print();">Print PDF</button>
+		<a class="btn btn-secondary m-2" type="button" th:href="@{/rapport/pdf}">Exporter PDF</a>
 		<div>
 			<form th:action="@{/taches/page/1}">
 				<input type="hidden" name="sortField" th:value="${sortField}">

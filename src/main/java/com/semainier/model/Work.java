@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name="tblTache")
+@Table(name="tbltache")
 public class Work {
 
 	@Id
@@ -26,7 +26,7 @@ public class Work {
 	private String remarque;
 
 	@ManyToMany
-	@JoinTable(name = "tblEtudier", joinColumns = @JoinColumn(name = "tblTache_tacId"), inverseJoinColumns = @JoinColumn(name = "tblEleve_EleId"))
+	@JoinTable(name = "tbletudier", joinColumns = @JoinColumn(name = "tbltache_tacid"), inverseJoinColumns = @JoinColumn(name = "tbleleve_eleid"))
 	private Set<Student> students = new HashSet<Student>();
 
 	public Work() {}

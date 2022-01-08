@@ -29,6 +29,17 @@ public class WorkController {
 		return listByPage(model, 1, "id", "asc", "");
 	}
 
+	@GetMapping("/rapport/pdf")
+	public String showWorkListPDF(Model model){
+		Sort sort = Sort.by("id");
+		Page<Work> page = workRepository.findAll("", PageRequest.of(0, Constants.PAGE_SIZE, sort));
+
+		model.addAttribute("listTasks", page.getContent());
+		model.addAttribute("listStudent", studentRepository.findAll());
+
+		return "pdf-output";
+	}
+
 	@GetMapping("/taches/page/{pageNumber}")
 	public String listByPage(Model model, @PathVariable int pageNumber, @RequestParam String sortField, @RequestParam String sortDir, @RequestParam String keyword){
 		Sort sort = Sort.by(sortField);
@@ -36,6 +47,7 @@ public class WorkController {
 		Page<Work> page = workRepository.findAll(keyword, PageRequest.of(pageNumber - 1, Constants.PAGE_SIZE, sort));
 
 		model.addAttribute("listTasks", page.getContent());
+		model.addAttribute("listStudent", studentRepository.findAll());
 		model.addAttribute("sortField", sortField);
 		model.addAttribute("sortDir", sortDir);
 		model.addAttribute("keyword", keyword);
