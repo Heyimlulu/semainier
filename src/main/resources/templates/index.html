@@ -15,11 +15,17 @@
 	<div class="container position-absolute top-50 start-50 translate-middle text-center">
 		<div>
 			<h1 >Projet de semainier pour les élèves</h1>
+			<div th:if="${#httpServletRequest.remoteUser}" >
+				<h2 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h2>
+				<form th:action="@{/logout}" method="post">
+					<input class="btn btn-danger" type="submit" value="Sign Out"/>
+				</form>
+			</div>
 		</div>
 	</div>
 
 	<div th:insert="navbar :: footer">
-		
+
 	</div>
 </body>
 </html>
