@@ -1,6 +1,6 @@
 LOAD
 DATA LOCAL INFILE
-'/Users/lucas/Documents/GitHub/semainier/commune.csv'
+'/Users/Noize/Documents/GitHub/semainier/commune.csv'
 INTO TABLE tbllocalite
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
