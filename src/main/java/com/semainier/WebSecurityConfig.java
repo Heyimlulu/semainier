@@ -15,12 +15,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
+    /*
     @Autowired
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().passwordEncoder(new BCryptPasswordEncoder())
                 .dataSource(dataSource)
-                .usersByUsernameQuery("select username, password, enabled from tblusers where username=?")
-                .authoritiesByUsernameQuery("select username, role from tblusers where username=?")
+                .usersByUsernameQuery("select username, password, enabled from tbleleve where username=?")
+                .authoritiesByUsernameQuery("select username, role from tbleleve where username=?")
+        ;
+    }
+     */
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .passwordEncoder(new BCryptPasswordEncoder())
+                .withUser("admin")
+                .password("$2a$10$niqpnfWviYjdHM2wDvViaejUt0aPbfQUkNYTSe1Sbwc7uyf1X6ihy")
+                .roles("ADMIN")
         ;
     }
 
