@@ -17,7 +17,7 @@
 			<h1 th:if="${student.id == null}">Ajouter un élève</h1>
 			<h1 th:unless="${student.id == null}">Modifier un élève</h1>
 		</div>
-		<form th:action="@{/eleves/save}" th:object="${student}" method="post" style="max-width: 600px; margin: 0 auto;">
+		<form th:action="@{/student/save}" th:object="${student}" method="post" style="max-width: 600px; margin: 0 auto;">
 			<input type="hidden" th:field="*{id}" th:value="${student.id}">
 			<div class="m-3">
 				<div class="form-group row">

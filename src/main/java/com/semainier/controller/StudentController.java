@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.semainier.Constants;
 import com.semainier.model.Student;
-import com.semainier.model.Locality;
 import com.semainier.repository.StudentRepository;
 import com.semainier.repository.LocalityRepository;
-
 
 @Controller
 public class StudentController {
@@ -26,12 +24,12 @@ public class StudentController {
 	@Autowired
 	private LocalityRepository localityRepository;
 
-	@GetMapping("/eleves")
+	@GetMapping("/student")
 	public String showStudentList(Model model) {
 		return listByPage(model, 1, "id", "asc", "");
 	}
 
-	@GetMapping("/eleves/page/{pageNumber}")
+	@GetMapping("/student/page/{pageNumber}")
 	public String listByPage(Model model, @PathVariable int pageNumber, @RequestParam String sortField, @RequestParam String sortDir, @RequestParam String keyword){
 		Sort sort = Sort.by(sortField);
 		sort = sortDir.equals("asc") ? sort.ascending() : sort.descending();
@@ -42,17 +40,17 @@ public class StudentController {
 		model.addAttribute("sortDir", sortDir);
 		model.addAttribute("keyword", keyword);
 
-		return "eleves";
+		return "student";
 	}
 
-	@GetMapping("/eleves/new")
+	@GetMapping("/student/new")
 	public String showCreateNewStudentForm(Model model) {
 		model.addAttribute("listLocalities", localityRepository.findAll());
 		model.addAttribute("student", new Student());
-		return "eleve_form";
+		return "student_form";
 	}
 
-	@PostMapping("/eleves/save")
+	@PostMapping("/student/save")
 	public String saveStudent(Student student) {
 		/*
 		int last = localityRepository.findAll().size();
@@ -60,19 +58,19 @@ public class StudentController {
 		student.setLocality(l);
 		 */
 		studentRepository.save(student);
-		return "redirect:/eleves";
+		return "redirect:/student";
 	}
 
-	@GetMapping("/eleves/edit/{id}")
+	@GetMapping("/student/edit/{id}")
 	public String showCreateNewStudentForm(@PathVariable Integer id, Model model) {
 		model.addAttribute("listLocalities", localityRepository.findAll());
 		model.addAttribute("student", studentRepository.findById(id).get());
-		return "eleve_form";
+		return "student_form";
 	}
 
-	@GetMapping("/eleves/delete/{id}")
+	@GetMapping("/student/delete/{id}")
 	public String deleteStudent(@PathVariable Integer id) {
 		studentRepository.deleteById(id);
-		return "redirect:/eleves";
+		return "redirect:/student";
 	}
 }

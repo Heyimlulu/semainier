@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Formulaire tâches</title>
+	<title>Formulaire travaux</title>
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -14,11 +14,11 @@
 	<div th:insert="navbar :: navbar"></div>
 	<div class="container text-center">
 		<div>
-			<h1 th:if="${tache.id == null}">Ajouter une tâche</h1>
-			<h1 th:unless="${tache.id == null}">Modifier une tâche</h1>
+			<h1 th:if="${work.id == null}">Ajouter une tâche</h1>
+			<h1 th:unless="${work.id == null}">Modifier une tâche</h1>
 		</div>
-		<form th:action="@{/taches/save}" th:object="${tache}" method="post" style="max-width: 600px; margin: 0 auto;">
-			<input type="hidden" th:field="*{id}" th:value="${tache.id}">
+		<form th:action="@{/work/save}" th:object="${work}" method="post" style="max-width: 600px; margin: 0 auto;">
+			<input type="hidden" th:field="*{id}" th:value="${work.id}">
 			<div class="m-3">
 				<div class="form-group row">
 					<label class="col-form-label col-sm-4">Branche: </label>

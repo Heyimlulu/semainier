@@ -24,60 +24,60 @@ public class WorkController {
 	@Autowired
 	private StudentRepository studentRepository;
 
-	@GetMapping("/taches")
+	@GetMapping("/work")
 	public String showWorkList(Model model) {
 		return listByPage(model, 1, "id", "asc", "");
 	}
 
-	@GetMapping("/rapport/pdf")
-	public String showWorkListPDF(Model model){
+	@GetMapping("/report/pdf")
+	public String showReportInPDF(Model model){
 		Sort sort = Sort.by("id");
 		Page<Work> page = workRepository.findAll("", PageRequest.of(0, Constants.PAGE_SIZE, sort));
 
-		model.addAttribute("listTasks", page.getContent());
+		model.addAttribute("listWorks", page.getContent());
 		model.addAttribute("listStudent", studentRepository.findAll());
 
-		return "pdf-output";
+		return "report";
 	}
 
-	@GetMapping("/taches/page/{pageNumber}")
+	@GetMapping("/work/page/{pageNumber}")
 	public String listByPage(Model model, @PathVariable int pageNumber, @RequestParam String sortField, @RequestParam String sortDir, @RequestParam String keyword){
 		Sort sort = Sort.by(sortField);
 		sort = sortDir.equals("asc") ? sort.ascending() : sort.descending();
 		Page<Work> page = workRepository.findAll(keyword, PageRequest.of(pageNumber - 1, Constants.PAGE_SIZE, sort));
 
-		model.addAttribute("listTasks", page.getContent());
+		model.addAttribute("listWorks", page.getContent());
 		model.addAttribute("listStudent", studentRepository.findAll());
 		model.addAttribute("sortField", sortField);
 		model.addAttribute("sortDir", sortDir);
 		model.addAttribute("keyword", keyword);
 
-		return "taches";
+		return "work";
 	}
 
-	@GetMapping("/taches/new")
+	@GetMapping("/work/new")
 	public String showCreateNewWorkForm(Model model) {
 		model.addAttribute("listStudent", studentRepository.findAll());
-		model.addAttribute("tache", new Work());
-		return "tache_form";
+		model.addAttribute("work", new Work());
+		return "work_form";
 	}
 
-	@PostMapping("/taches/save")
+	@PostMapping("/work/save")
 	public String saveWork(Work work) {
 		workRepository.save(work);
-		return "redirect:/taches";
+		return "redirect:/work";
 	}
 
-	@GetMapping("/taches/edit/{id}")
+	@GetMapping("/work/edit/{id}")
 	public String showCreateNewWorkForm(@PathVariable Integer id, Model model) {
 		model.addAttribute("listStudent", studentRepository.findAll());
-		model.addAttribute("tache", workRepository.findById(id).get());
-		return "tache_form";
+		model.addAttribute("work", workRepository.findById(id).get());
+		return "work_form";
 	}
 
-	@GetMapping("/taches/delete/{id}")
+	@GetMapping("/work/delete/{id}")
 	public String deleteWork(@PathVariable Integer id) {
 		workRepository.deleteById(id);
-		return "redirect:/taches";
+		return "redirect:/work";
 	}
 }
