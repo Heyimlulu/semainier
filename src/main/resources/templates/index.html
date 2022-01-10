@@ -23,11 +23,11 @@
     <div class="container-fluid position-absolute top-50 start-50 translate-middle text-center">
         <div>
 
-            <h1 class="text-light">Projet de semainier pour les élèves</h1>
+            <h1 class="text-light font-weight-bold">Projet de semainier pour les élèves</h1>
             <div th:if="${#httpServletRequest.remoteUser}">
-                <h2 class="text-light" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h2>
+                <h2 class="text-light" th:inline="text">Bonjour, [[${#httpServletRequest.remoteUser}]]!</h2>
                 <form th:action="@{/logout}" method="post">
-                    <input class="btn btn-danger" type="submit" value="Sign Out"/>
+                    <input class="btn btn-danger" type="submit" value="Déconnexion"/>
                 </form>
             </div>
 
@@ -36,7 +36,7 @@
 
     <!-- Ne pas supprimer les balises suivantes Points qui montent -->
 
-    <th:block th:each="i: ${#numbers.sequence(1, 100)}">
+    <th:block th:each="i: ${#numbers.sequence(1, 10)}">
         <div class="circle-container">
             <div class="circle"></div>
         </div>
