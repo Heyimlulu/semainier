@@ -1,39 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-body {
-  background-color: #021027;
-}
-
-.container1 {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.background {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 100%;
-  -webkit-mask-image: radial-gradient(white 0%, white 30%, transparent 80%, transparent);
-          mask-image: radial-gradient(white 0%, white 30%, transparent 80%, transparent);
-}
-
 .circle-container {
   position: absolute;
   transform: translateY(-10vh);
@@ -6094,35 +6058,4 @@ body {
 .circle-container:nth-child(200) .circle {
   -webkit-animation-delay: 230ms;
           animation-delay: 230ms;
-}
-
-.message {
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
-  color: white;
-  font-family: "Josefin Slab", serif;
-  line-height: 27px;
-  font-size: 18px;
-  text-align: right;
-  pointer-events: none;
-  -webkit-animation: message-frames 1.5s ease 5s forwards;
-          animation: message-frames 1.5s ease 5s forwards;
-  opacity: 0;
-}
-@-webkit-keyframes message-frames {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes message-frames {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
