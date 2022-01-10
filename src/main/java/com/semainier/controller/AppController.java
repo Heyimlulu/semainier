@@ -10,4 +10,9 @@ public class AppController {
 	public String viewHomePage() {
 		return "index";
 	}
+
+	@GetMapping("/error")
+	public String viewNotFoundPage() {
+		return "error";
+	}
 }
