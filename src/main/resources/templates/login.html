@@ -9,24 +9,30 @@
 </head>
 <body class="text-center">
 
-<form th:action="@{/login}" method="post" class="form-signin">
     <div class="alert alert-danger" th:if="${param.error}">
         Mot de passe ou nom d'utilisateur invalide.
     </div>
     <div class="alert alert-success" th:if="${param.logout}">
         Vous vous êtes déconnecté.
     </div>
-    <h1 class="h3 mb-3 font-weight-normal">Veuillez vous connecter pour continuer</h1>
+    
+<div class="container-fluid position-absolute mt-5 pt-5 top-50 start-50 translate-middle text-center" >
+
+<form th:action="@{/login}" method="post" class="form-signin">
+
+    <h1 class="h3 mb-3 font-weight-normal mt-5" style="color:#1e90ff;">Veuillez vous connecter</h1>
 
     <input type="text" id="username" name="username" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
     <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" required>
 
-    <button class="btn btn-lg btn-primary btn-block w-100" type="submit" value="Sign In">Connexion</button>
+    <button class="btn btn-lg btn-primary btn-block w-100 mb-5" type="submit" value="Sign In">Connexion</button>
 </form>
 
-<a class="text-decoration-none" th:href="@{/}">
+
+<a class="lien" th:href="@{/}">
     Revenir à la page d'accueil &rarr;
 </a>
+</div>
 
 </body>
 </html>
