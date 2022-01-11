@@ -14,7 +14,7 @@
 		<div>
 			<h1>Liste des travaux</h1>
 		</div>
-		<a class="btn btn-secondary m-2" type="button" th:href="@{/report/pdf}">Exporter PDF</a>
+		<a class="btn btn-secondary m-2" type="button" th:href="@{/report/pdf}">Exporter la liste en PDF</a>
 		<form class="pb-2" th:action="@{/work/page/1}">
 			<input type="hidden" name="sortField" th:value="${sortField}">
 			<input type="hidden" name="sortDir" th:value="${sortDir}">

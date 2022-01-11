@@ -2,37 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Exporter Rapport</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Student Weekly Report</title>
+    <link th:href="@{css/report.css}" rel="stylesheet">
 </head>
 <body class="flex items-center justify-center h-screen">
 <div class="rounded-lg border shadow-lg p-10 w-3/5">
-    <div class="flex flex-row justify-between pb-4">
+    <div class="flex flex-row pb-4">
         <div>
-            <h2 class="text-xl font-bold">Rapport de la semaine</h2>
+            <h2 class="text-xl font-bold">Rapport des travaux de la semaine</h2>
         </div>
     </div>
-    <div class="flex flex-col pb-8">
+    <div class="pb-8">
         <div class="pb-2">
             <h2 class="text-xl font-bold">Informations de l'élève</h2>
         </div>
-        <th:block th:each="student : ${listStudent}">
-            <div>[[${student.nom} + ' ' + ${student.prenom}]]</div>
-        </th:block>
+        <div>
+            <th:block th:each="student : ${listStudent}">
+                <div>
+                    Nom de l'élève: [[${student.nom} + ' ' + ${student.prenom}]]
+                </div>
+                <div>
+                    Adresse: [[${student.locality.NPA} + ' ' + ${student.locality.ville}]], VS
+                </div>
+            </th:block>
+        </div>
     </div>
     <table class="table-fixed w-full text-right border rounded">
-        <thead class="bg-gray-100 text-center">
+        <thead class="bg-gray-100">
         <tr>
             <th class="text-left pl-4">Branche</th>
-            <th>Durée (h)</th>
-            <th class="pr-4">Date</th>
-            <th>Remarque</th>
+            <th class="text-right">Durée (heure)</th>
+            <th class="text-right pr-4">Date</th>
+            <th class="text-right">Remarque</th>
         </tr>
         </thead>
-        <tbody class="text-center">
+        <tbody>
         <tr th:each="taches : ${listWorks}">
             <td class="pl-4 text-left">[[${taches.branche}]]</td>
-            <td>[[${taches.duree}]]</td>
+            <td>[[${taches.duree}]]h</td>
             <td class="pr-4">[[${taches.date}]]</td>
             <td>[[${taches.remarque}]]</td>
         </tr>
