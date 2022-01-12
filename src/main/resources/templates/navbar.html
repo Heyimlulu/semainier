@@ -15,7 +15,7 @@
 <body>
 <nav th:fragment="navbar" class="navbar navbar-expand bg-black navbar-dark justify-content-center d-flex border-bottom border-info">
     <!-- Brand -->
-    <a class="navbar-brand flex-grow-1 bd-highlight" href="http://localhost:8888/">
+    <a class="navbar-brand flex-grow-1 bd-highlight" th:href="@{/}">
         <i class="far fa-calendar-alt ml-2 "></i> Accueil </a>
     <!-- Links -->
     <ul class="navbar-nav">
