@@ -1,12 +1,17 @@
-LOAD
-DATA LOCAL INFILE
-'src/main/resources/commune.csv'
-INTO TABLE tbllocalite
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS
-(ville, npa, canton);
+--LOAD
+--DATA LOCAL INFILE
+--'src/main/resources/commune.csv'
+--INTO TABLE tbllocalite
+--FIELDS TERMINATED BY ','
+--ENCLOSED BY '"'
+--LINES TERMINATED BY '\n'
+--IGNORE 1 ROWS
+--(ville, npa, canton);
+
+COPY tbllocalite(npa, canton, ville)
+FROM 'src/main/resources/commune.csv'
+DELIMITER ','
+CSV HEADER;
 
 DELETE
 FROM tbllocalite
