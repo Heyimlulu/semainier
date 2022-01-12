@@ -15,11 +15,11 @@
 <body>
 <nav th:fragment="navbar" class="navbar navbar-expand bg-black navbar-dark d-flex border-bottom border-danger">
     <!-- Brand -->
-    <a class="navbar-brand bd-highlight" href="http://localhost:8888/">
-        <i class="far fa-calendar-alt ml-2 "></i> Accueil </a>            
+    <a class="navbar-brand bd-highlight" th:href="@{/}">
+        <i class="far fa-calendar-alt ml-2 "></i> Accueil </a>
          <div class="mr-auto ml-5" th:if="${#httpServletRequest.remoteUser}">
                 <div class=" badge bg-secondary bg gradient fs-5 text-wrap text-light " th:inline="text">Bonjour, [[${#httpServletRequest.remoteUser}]] !</div>
-		</div>                
+		</div>
     <!-- Links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item bd-highlight">
@@ -30,7 +30,7 @@
                 Admin Panel
             </a>
         </li>
-        <li class="nav-item bd-highlight">	
+        <li class="nav-item bd-highlight">
         	<div th:if="${#httpServletRequest.remoteUser}">
             	<form th:action="@{/logout}" method="post">
             		<a class="btn btn-danger" onclick="this.closest('form').submit();return false;"> <i class="fas fa-sign-out-alt " style="color:white"></i></a>
