@@ -19,17 +19,21 @@
 <body class="bg-black">
 
 <div th:insert="navbar :: navbar"></div>
-<div class="container1"><img class="background" src="./img/temp.jpg" style=""/><!-- Début du div Background container1 -->
+<div class="container1"><img class="background" src="./img/temp.jpg"/><!-- Début du div Background container1 -->
     <div class="container-fluid position-absolute top-50 start-50 translate-middle text-center">
         <div>
 
-            <h1 class="text-light font-weight-bold">Projet de semainier pour les élèves</h1>
-            <div th:if="${#httpServletRequest.remoteUser}">
-                <h2 class="text-light" th:inline="text">Bonjour, [[${#httpServletRequest.remoteUser}]]!</h2>
-                <form th:action="@{/logout}" method="post">
-                    <input class="btn btn-danger" type="submit" value="Déconnexion"/>
-                </form>
+            <h1 class="text-light font-weight-bold">Semainier pour les élèves</h1>
+            
+  			<div class="container2 mt-5 text-light text-left">
+  			<p>Ce projet a été développé dans le cadre du cours M306 à l'EPTM.</p>
+           	<p>L'idée étant de fournir un suivi des tâches de la semaine effectuées par un élève au professeur.</p>
+           	<p>Nous espérons que ce programme vous donnera satisfaction et que vous aurez du plaisir à l'utiliser</p>
+           	<p class="text-center mt-5"> -- Lucas et Steve -- </p>
+           	
+            
             </div>
+
 
         </div>
     </div>

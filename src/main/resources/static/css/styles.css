@@ -16,3 +16,34 @@ body {
     overflow: hidden;
     position: relative;
 }
+
+.container2 {
+    width: 50%;
+    height: 50%;
+    overflow: hidden;
+	margin : auto;
+}
+
+.fondwork {
+	background: url(/img/sablier.jpg) no-repeat;
+	background-size:cover;
+}
+
+.fondeleve {
+	background: url(/img/fondeleve.jpg) no-repeat;
+	background-size:cover;
+}
+
+.fond404 {
+	background: url(/img/404.jpg) no-repeat;
+	background-size:cover;
+}
+
+.essai {
+	font-size: xx-large;
+}
+
+.formclair {
+  --bs-bg-opacity: 0.25;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}

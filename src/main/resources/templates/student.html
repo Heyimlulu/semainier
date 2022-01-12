@@ -9,23 +9,24 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<link th:href="@{css/styles.css}" rel="stylesheet"/>
 </head>
-<body>
+<body class="text-light fondeleve">
 	<div th:insert="navbar :: navbar">  </div>
 	<div class="container text-center">
-		<div>
+		<div class="mt-5 pt-5 mb-5">
 			<h1>Liste des élèves</h1>
 		</div>
 		<form class="pb-2" th:action="@{/student/page/1}">
 			<input type="hidden" name="sortField" th:value="${sortField}">
 			<input type="hidden" name="sortDir" th:value="${sortDir}">
-			Filtrer: <input type="text" name="keyword" th:value="${keyword}" title="Rechercher par ID, Nom ou Localité" required>
+			Filtre : <input type="text" name="keyword" th:value="${keyword}" title="Rechercher par ID, Nom ou Localité" required>
 			&nbsp;
-			<input type="submit" value="Rechercher" class="btn btn-primary">
+			<input type="submit" value="Rechercher" class="btn btn-info">
 			&nbsp;
 			<input type="button" value="X" class="btn btn-danger" onclick="clearFilter()">
 		</form>
-		<div>
+		<div class="mt-3">
 			<table class="table table-striped table-bordered">
 				<thead class="thead-dark">
 					<tr>
@@ -34,19 +35,19 @@
 						<th style="vertical-align: middle;">Prénom</th>
 						<th style="vertical-align: middle;">Date de naissance</th>
 						<th style="vertical-align: middle;">Localité</th>
-						<th><a th:href="@{/student/new}" class="btn btn-primary"><span class="spinner-grow spinner-grow-sm"></span> Nouveau</a></th>
+						<th><a th:href="@{/student/new}" class="btn btn-info"><span class="spinner-grow spinner-grow-sm"></span> Nouveau</a></th>
 					</tr>
 				</thead>
 				<tbody>
 					<th:block th:each="student : ${listStudents}">
 						<tr>
-							<td>[[${student.id}]]</td>
-							<td>[[${student.nom}]]</td>
-							<td>[[${student.prenom}]]</td>
-							<td>[[${student.dob}]]</td>
-							<td>[[${student.locality.ville}]]</td>
-							<td>
-								<a th:href="'/student/edit/' + ${student.id}" class="btn btn-primary"><i class="fas fa-pen"></i> Modifier</a>
+							<td class="text-light formclair">[[${student.id}]]</td>
+							<td class="text-light formclair">[[${student.nom}]]</td>
+							<td class="text-light formclair">[[${student.prenom}]]</td>
+							<td class="text-light formclair">[[${student.dob}]]</td>
+							<td class="text-light formclair">[[${student.locality.ville}]]</td>
+							<td class="text-light formclair">
+								<a th:href="'/student/edit/' + ${student.id}" class="btn btn-info"><i class="fas fa-pen"></i> Modifier</a>
 								&nbsp;
 								<a th:href="'/student/delete/' + ${student.id}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Supprimer</a>
 							</td>
