@@ -8,7 +8,7 @@
 --IGNORE 1 ROWS
 --(ville, npa, canton);
 
-COPY tbllocalite(npa, canton, ville)
+COPY tbllocalite(ville, npa, canton)
 FROM 'src/main/resources/commune.csv'
 DELIMITER ','
 CSV HEADER;
