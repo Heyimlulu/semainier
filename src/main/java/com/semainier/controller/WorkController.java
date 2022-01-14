@@ -67,7 +67,8 @@ public class WorkController {
 		// Setup Source and target I/O streams
 		ByteArrayOutputStream target = new ByteArrayOutputStream();
 		ConverterProperties converterProperties = new ConverterProperties();
-		converterProperties.setBaseUri("http://localhost");
+		// converterProperties.setBaseUri("http://localhost:8888");
+		converterProperties.setBaseUri("https://semainier.herokuapp.com/");
 		// Call convert method
 		HtmlConverter.convertToPdf(reportHtml, target, converterProperties);
 
