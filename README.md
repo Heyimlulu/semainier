@@ -13,7 +13,9 @@ To run this project, you need to do the following
   - Set HTTP port to default (required for MySQL)  
   - Set MySQL port to default
   - Add the default database `semainierdb` with default parameters
-    - Don't forget to change your database name in the `application.properties` file if you changed it
+    - Don't forget to change your local database name in the `application-dev.properties` file if you changed it
+  - Run the application for the first time to create tables 
+    - **For production only** : if `tblLocalite` is not filled automatically then you have to manually import the datas in `src/main/resources/commune.csv`
 
 ## Usage
 
