@@ -44,6 +44,7 @@ The Back-end (database) is available at [localhost/phpmyadmin](http://localhost/
 
 The public instances hosted on Heroku is also available
 - Front-End : https://semainier.herokuapp.com/
+- Back-End : https://data.heroku.com/dataclips/hvnudbhcgztddgasidnrjlgpsvix
 
 ## Authors
 
