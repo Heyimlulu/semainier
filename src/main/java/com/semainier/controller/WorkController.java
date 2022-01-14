@@ -67,7 +67,7 @@ public class WorkController {
 		// Setup Source and target I/O streams
 		ByteArrayOutputStream target = new ByteArrayOutputStream();
 		ConverterProperties converterProperties = new ConverterProperties();
-		converterProperties.setBaseUri("http://localhost:8888");
+		converterProperties.setBaseUri("http://localhost");
 		// Call convert method
 		HtmlConverter.convertToPdf(reportHtml, target, converterProperties);
 
