@@ -3,29 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Student Weekly Report</title>
-    <link th:href="@{../../../css/report.css}" rel="stylesheet">
+    <link th:href="@{css/report.css}" rel="stylesheet">
+    <script type="text/javascript">
+        let today = document.querySelector('#today');
+
+        const monthsList = [
+            'Janvier',
+            'Février',
+            'Mars',
+            'Avril',
+            'Mai',
+            'Juin',
+            'Juillet',
+            'Août',
+            'Septembre',
+            'Octobre',
+            'Novembre',
+            'Décembre'
+        ];
+
+        const daysList = [
+            'Dimanche',
+            'Lundi',
+            'Mardi',
+            'Mercredi',
+            'Jeudi',
+            'Vendredi',
+            'Samedi'
+        ];
+
+        const date = new Date();
+
+        let year = date.getFullYear();
+        let month = monthsList[date.getMonth()];
+        let dayMonth = daysList[date.getDay()];
+        let day = date.getDate();
+
+        let fullDate = `${dayMonth}, le ${day} ${month} ${year}`;
+
+        today.textContent = `${fullDate}`;
+    </script>
 </head>
 <body class="flex items-center justify-center h-screen">
-<div class="rounded-lg border shadow-lg p-10 w-3/5">
+<div class="rounded-lg shadow-lg p-10 w-3/5">
+    <img class="pb-8 mx-auto max-w-1/6" src="img/eptm-logo.png" alt="Logo de l'EPTM"/>
+    <div class="pb-12" id="today"></div>
     <div class="flex flex-row pb-4">
         <div>
-            <h2 class="text-xl font-bold">Rapport des travaux de la semaine</h2>
+            <h2 class="text-xl font-bold">Rapport des travaux réalisés pendant la semaine</h2>
+            <p>Ce document doit être imprimé et remis au titulaire pour signature</p>
         </div>
     </div>
     <div class="pb-8">
-        <div class="pb-2">
-            <h2 class="text-xl font-bold">Informations de l'élève</h2>
-        </div>
         <div>
-            <th:block th:each="student : ${listStudent}">
-                <div>
-                    Nom de l'élève: [[${student.nom} + ' ' + ${student.prenom}]]
-                </div>
-                <div>
-                    Adresse: [[${student.locality.NPA} + ' ' + ${student.locality.ville}]], VS
-                </div>
-            </th:block>
+            <h2 class="text-lg font-bold">Informations de l'élève</h2>
         </div>
+        <th:block th:each="student : ${listStudent}">
+            <p>
+                Nom de l'élève: [[${student.nom} + ' ' + ${student.prenom}]]
+            </p>
+            <p>
+                Adresse: [[${student.locality.NPA} + ' ' + ${student.locality.ville}]], VS
+            </p>
+        </th:block>
     </div>
     <table class="table-fixed w-full text-right border rounded">
         <thead class="bg-gray-100">
@@ -45,6 +85,16 @@
         </tr>
         </tbody>
     </table>
+    <div class="float-left">
+        <div class="pt-10">
+            <h2>Date :</h2>
+            <hr class="mt-6">
+        </div>
+        <div class="pt-6">
+            <h2>Signature du titulaire :</h2>
+            <hr class="mt-6">
+        </div>
+    </div>
 </div>
 </body>
 </html>

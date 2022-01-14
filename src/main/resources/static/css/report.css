@@ -23,6 +23,11 @@ body {
     margin: 0;
 }
 
+.A4 {
+    size: 7in 9.25in;
+    margin: 27mm 16mm 27mm 16mm;
+}
+
 /**
  * Render the `main` element consistently in IE.
  */
@@ -439,6 +444,10 @@ table {
     border-collapse: collapse;
 }
 
+th, td {
+    padding: .5rem;
+}
+
 h1,
 h2,
 h3,
@@ -572,6 +581,10 @@ video {
     justify-content: center;
 }
 
+.mx-auto {
+    margin: 0 auto;
+}
+
 .justify-between {
     justify-content: space-between;
 }
@@ -590,6 +603,18 @@ video {
 
 .text-xl {
     font-size: 1.25rem;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.mr-8 {
+    margin-right: 2rem;
 }
 
 .p-2 {
@@ -620,8 +645,24 @@ video {
     padding-left: 1rem;
 }
 
+.mt-6 {
+    margin-top: 1.5rem;
+}
+
+.pt-6 {
+    padding-top: 1.5rem;
+}
+
 .pb-8 {
     padding-bottom: 2rem;
+}
+
+.pt-10 {
+    margin-top: 2.5rem;
+}
+
+.pb-12 {
+    padding-bottom: 3rem;
 }
 
 .shadow-lg {
@@ -642,6 +683,10 @@ video {
 
 .text-green-600 {
     color: #38a169;
+}
+
+.max-w-1\/6 {
+    max-width: 15%;
 }
 
 .w-3\/5 {
