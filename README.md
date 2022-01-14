@@ -10,7 +10,6 @@ To run this project, you need to do the following
 
 ### Prerequisites
 
-> Windows
 - Install Xampp and setup a Web Server with Apache & MySQL
   - Set HTTP port to default (required for MySQL)  
   - Set MySQL port to default
